@@ -10,7 +10,7 @@ class Portfolio < ApplicationRecord
   after_initialize :set_defaults  # will run after new in portfolio_controller
 
   def set_defaults
-    self.main_image  ||= "http://via.placeholder.com/600x400"
-    self.thumb_image ||=  "http://via.placeholder.com/300x200"
+    self.main_image  ||= Placeholder.image_generator(height: '600',width: '400')
+    self.thumb_image ||=  Placeholder.image_generator(height: '300',width: '200')
   end  
 end
